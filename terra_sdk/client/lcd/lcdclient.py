@@ -41,6 +41,13 @@ def get_default(chain_id: str) -> [Coins, Numeric]:
     if chain_id == "localterra":
         return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
 
+    # Terra Classic Networks
+    # Mainnet
+    if chain_id == "columbus-5":
+        return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
+    # Testnet
+    if chain_id == "bombay-12":
+        return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
     raise ValueError("chain_id is invalid")
 
 

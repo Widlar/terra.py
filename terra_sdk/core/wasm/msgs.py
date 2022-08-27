@@ -58,7 +58,8 @@ class MsgStoreCode(Msg):
 
     sender: AccAddress = attr.ib()
     wasm_byte_code: str = attr.ib()
-    instantiate_permission: AccessConfig = attr.ib()
+    # FIXME:
+    # instantiate_permission: AccessConfig = attr.ib()
 
     def to_amino(self) -> dict:
         return {
@@ -66,7 +67,8 @@ class MsgStoreCode(Msg):
             "value": {
                 "sender": self.sender,
                 "wasm_byte_code": self.wasm_byte_code,
-                "instantiate_permission": self.instantiate_permission.to_amino(),
+                # FIXME:
+                # "instantiate_permission": self.instantiate_permission.to_amino(),
             },
         }
 
@@ -75,16 +77,18 @@ class MsgStoreCode(Msg):
         return cls(
             sender=data["sender"],
             wasm_byte_code=data["wasm_byte_code"],
-            instantiate_permission=AccessConfig.from_data(
-                data["instantiate_permission"]
-            ),
+            # FIXME:
+            # instantiate_permission=AccessConfig.from_data(
+            #     data["instantiate_permission"]
+            #),
         )
 
     def to_proto(self) -> MsgStoreCode_pb:
         return MsgStoreCode_pb(
             sender=self.sender,
             wasm_byte_code=base64.b64decode(self.wasm_byte_code),
-            instantiate_permission=self.instantiate_permission.to_proto(),
+            # FIXME:
+            # instantiate_permission=self.instantiate_permission.to_proto(),
         )
 
     @classmethod
@@ -92,9 +96,10 @@ class MsgStoreCode(Msg):
         return cls(
             sender=proto.sender,
             wasm_byte_code=base64.b64encode(proto.wasm_byte_code).decode(),
-            instantiate_permission=AccessConfig.from_proto(
-                proto.instantiate_permission
-            ),
+            # FIXME:
+            # instantiate_permission=AccessConfig.from_proto(
+            #    proto.instantiate_permission
+            # ),
         )
 
 
