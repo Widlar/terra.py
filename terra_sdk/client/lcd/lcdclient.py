@@ -48,7 +48,10 @@ def get_default(chain_id: str) -> [Coins, Numeric]:
     # Testnet
     if chain_id == "bombay-12":
         return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
-    raise ValueError("chain_id is invalid")
+
+    # FIXME:
+    return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
+    # raise ValueError("chain_id is invalid")
 
 
 class AsyncLCDClient:

@@ -53,6 +53,7 @@ class MnemonicKey(RawKey):
         account: int = 0,
         index: int = 0,
         coin_type: int = LUNA_COIN_TYPE,
+        hrp: str = "terra"
     ):
         if mnemonic is None:
             mnemonic = Mnemonic("english").generate(256)
@@ -67,7 +68,7 @@ class MnemonicKey(RawKey):
             .ChildKey(index)
         )
 
-        super().__init__(child.PrivateKey())
+        super().__init__(child.PrivateKey(), hrp)
         self.mnemonic = mnemonic
         self.coin_type = coin_type
         self.account = account
